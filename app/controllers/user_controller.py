@@ -1,6 +1,7 @@
 from flask import request, current_app, jsonify
 from app.models.user_model import UserModel
 from app.models.company_model import CompanyModel
+from app.models.user_company_table import UserCompanyModel
 
 
 def create_user():
@@ -89,3 +90,20 @@ def add_company(user_id, company_id):
     current_app.db.session.commit()
 
     return "", 204
+
+
+def get_user_companies(user_id):
+    user = UserModel.query.get_or_404(
+        user_id, description="Usuário não encontrado")
+
+    user_company_filter = UserCompanyModel.query.filter_by(user_id=user_id)
+
+    companies = []
+
+    for user_company in user_company_filter:
+        company = CompanyModel.query.filter_by(
+            id=user_company.company_id).one_or_none()
+
+        companies.append(company)
+
+    return jsonify(companies)

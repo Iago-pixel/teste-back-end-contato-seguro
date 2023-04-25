@@ -7,3 +7,7 @@ users_companies = db.Table('users_companies',
                            db.Column('company_id', db.Integer,
                                      db.ForeignKey('companies.id'))
                            )
+
+
+class UserCompanyModel(db.Model):
+    __table__ = users_companies

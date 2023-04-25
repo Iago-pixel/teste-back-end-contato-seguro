@@ -12,7 +12,6 @@ class UserModel(db.Model):
     phone: str
     birth: str
     city: str
-    companies: list
 
     __tablename__ = "users"
 
