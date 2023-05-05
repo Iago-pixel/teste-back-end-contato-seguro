@@ -25,6 +25,13 @@
 
 <br>
 
+# Implementações futuras
+
+- Tratar possíveis erros nas rotas
+- Adicionar rotas protegidas por token
+
+<br>
+
 # 🎲 Rodando o Back End (servidor)
 
 Você terá que criar o arquivo .env baseado no .env.example e por o url de um banco de dados postgres. Perceba que a url tem que começar com postgresql! Você talvez queira criar um ambiente virtual também.
